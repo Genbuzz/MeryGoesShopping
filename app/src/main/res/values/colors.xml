@@ -3,4 +3,49 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--Custom color palette-->
+    <color name="soft1_Black">#303030</color>
+    <color name="soft2_Black">#181818</color>
+    <color name="mediumBlack">#101010</color>
+    <color name="hardBlack">#080808</color>
+    <color name="extremeBlack">#000000</color>
+
+    <color name="soft1_Grey">#ecf0f1</color><!--//-->
+    <color name="soft2_Grey">#d0d0d0</color>
+    <color name="soft3_Grey">#95a5a6</color><!--**-->
+    <color name="medium1_Grey">#bdc3c7</color><!--//-->
+    <color name="medium2_Grey">#7f8c8d</color><!--**-->
+    <color name="medium3_Grey">#6d6e71</color><!--used in icons-->
+    <color name="hardGrey">#424242</color>
+    <color name="extremeGrey">#212121</color>
+
+    <color name="softWhite">#f8f8f8</color>
+    <color name="mediumWhite">#f0f0f0</color>
+    <color name="extremeWhite">#ffffff</color>
+
+    <color name="soft1_Orange">#ffccbc</color>
+    <color name="soft2_Orange">#ffab91</color>
+    <color name="mediumOrange">#ff8a65</color>
+    <color name="hardOrange">#ff7043</color>
+    <color name="extremeOrange">#ff5722</color>
+
+    <color name="soft1_Red">#fde0dc</color>
+    <color name="soft2_Red">#f9bdbb</color>
+    <color name="soft3_Red">#f69988</color>
+    <color name="soft4_Red">#f36c60</color>
+    <color name="medium1_Red">#e74c3c</color><!---->
+    <color name="medium2_Red">#e84e40</color>
+    <color name="hard1_Red">#c0392b</color><!---->
+    <color name="hard2_Red">#e51c23</color>
+    <color name="extreme1_Red">#dd191d</color>
+    <color name="extreme2_Red">#c41411</color>
+
+    <color name="soft1_Green">#e0f2f1</color>
+    <color name="soft2_Green">#b2dfdb</color>
+    <color name="medium1_Green">#1abc9c</color><!---->
+    <color name="medium2_Green">#1de9b6</color>
+    <color name="hardGreen">#16a085</color><!---->
+    <color name="extreme1_Green">#049372</color>
+    <color name="extreme2_Green">#00796b</color>
 </resources>

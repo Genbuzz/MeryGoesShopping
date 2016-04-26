@@ -1,3 +1,38 @@
 <resources>
-    <string name="app_name">MeryGoesShopping</string>
+    <string name="app_name">Mery Goes Shopping</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="add_item">Add Item</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="content_description_image">Icon bulb for suggestion list</string>
+    <string name="content_description_icon">Icon for auto complete text</string>
+
+
+    <string name="bread_white">bread-white</string>
+    <string name="bread_wheat">bread-wheat</string>
+    <string name="bread_french">bread-french</string>
+    <string name="spinach">spinach</string>
+    <string name="broccoli">broccoli</string>
+    <string name="cauliflower">cauliflower</string>
+    <string name="green_pepper">green pepper</string>
+    <string name="carrots">carrots</string>
+    <string name="asparagus">asparagus</string>
+    <string name="red_pepper">red pepper</string>
+    <string name="strawberry">strawberry</string>
+    <string name="tomato">tomato</string>
+    <string name="orange">orange</string>
+    <string name="apple">apple</string>
+    <string name="cucumber">cucumber</string>
+    <string name="salmon">salmon</string>
+    <string name="avocado">avocado</string>
+    <string name="milk">milk</string>
+    <string name="potatoes">potatoes</string>
+    <string name="eggs">eggs</string>
+    <string name="cheese">cheese</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
