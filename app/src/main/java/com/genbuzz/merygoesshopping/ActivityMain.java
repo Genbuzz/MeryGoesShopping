@@ -10,7 +10,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+
+import model.Suggestion;
 
 
 public class ActivityMain extends AppCompatActivity {
@@ -20,12 +23,18 @@ public class ActivityMain extends AppCompatActivity {
     private AutoCompleteTextView txtSpeechInput;
     private ImageView btnSpeak;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         txtSpeechInput = (AutoCompleteTextView) findViewById(R.id.activity_main_auto_complete_name);
+
+
+
+
+
         btnSpeak = (ImageView) findViewById(R.id.activity_main_icon_microphone);
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {

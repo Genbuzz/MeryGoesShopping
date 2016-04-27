@@ -1,91 +1,118 @@
 package adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
-import android.widget.TextView;
-import com.genbuzz.merygoesshopping.R;
+import android.widget.Filterable;
+
 import java.util.ArrayList;
-import java.util.List;
-import model.Suggestion;
 
 /***
  * Created by Ivan on 27/04/2016.
  */
 
-public class SuggestionAdapter extends ArrayAdapter<Suggestion>{
+public class SuggestionAdapter extends ArrayAdapter<String> implements Filterable {
 
-    private Context context;
-    private int resource, txtViewResourceId;
-    private List<Suggestion> items, tempItems, suggestions;
+    private ArrayList<String> fullStringList;
+    private ArrayList<String> originalValues;
+    private ArrayFilter arrayFilter;
 
-    public SuggestionAdapter(Context context, int resource, int textViewResourceId, List<Suggestion> items) {
-        super(context, resource, textViewResourceId, items);
-        this.context = context;
-        this.resource = resource;
-        this.txtViewResourceId = textViewResourceId;
-        this.items = items;
-        tempItems = new ArrayList<Suggestion>(items); // this makes the difference.
-        suggestions = new ArrayList<Suggestion>();
+    public SuggestionAdapter(Context context, int resource,
+                             int textViewResourceId, ArrayList<String> fullList) {
+
+        super(context, resource, textViewResourceId, fullList);
+        this.fullStringList = fullList;
+        originalValues = new ArrayList<>(fullList);
+
+    }
+
+    @Override
+    public int getCount() {
+        return fullStringList.size();
+    }
+
+    @Override
+    public String getItem(int position) {
+        return fullStringList.get(position);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.row_suggestion, parent, false);
-        }
-        Suggestion suggestion = items.get(position);
-        if (suggestion != null) {
-            TextView lblName = (TextView) view.findViewById(R.id.row_suggestion_txt_view_name);
-            if (lblName != null)
-                lblName.setText(suggestion.getName());
-        }
-        return view;
+        return super.getView(position, convertView, parent);
     }
 
+    @Override
+    public Filter getFilter() {
+        if (arrayFilter == null) {
+            arrayFilter = new ArrayFilter();
+        }
+        return arrayFilter;
+    }
+
+
     /**
-     * Custom Filter implementation for custom suggestions we provide.
+     *
      */
-    Filter nameFilter = new Filter() {
-        @Override
-        public CharSequence convertResultToString(Object resultValue) {
-            String str = ((Suggestion) resultValue).getName();
-            return str;
-        }
+    private class ArrayFilter extends Filter {
+
+        private Object lock = null;
 
         @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            if (constraint != null) {
-                suggestions.clear();
-                for (Suggestion suggestion : tempItems) {
-                    if (suggestion.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
-                        suggestions.add(suggestion);
-                    }
+        protected FilterResults performFiltering(CharSequence prefix) {
+            FilterResults results = new FilterResults();
+
+            if (originalValues == null) {
+                synchronized (lock) {
+                    originalValues = new ArrayList<>(fullStringList);
                 }
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = suggestions;
-                filterResults.count = suggestions.size();
-                return filterResults;
-            } else {
-                return new FilterResults();
             }
+
+            if (prefix == null || prefix.length() == 0) {
+                synchronized (lock) {
+                    ArrayList<String> list = new ArrayList<>(
+                            originalValues);
+                    results.values = list;
+                    results.count = list.size();
+                }
+            } else {
+                final String prefixString = prefix.toString().toLowerCase();
+
+                ArrayList<String> values = originalValues;
+                int count = values.size();
+
+                ArrayList<String> newValues = new ArrayList<>(count);
+
+                for (int i = 0; i < count; i++) {
+                    String item = values.get(i);
+                    if (item.toLowerCase().contains(prefixString)) {
+                        newValues.add(item);
+                    }
+
+                }
+
+                results.values = newValues;
+                results.count = newValues.size();
+            }
+
+            return results;
         }
 
+        @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            List<Suggestion> filterList = (ArrayList<Suggestion>) results.values;
-            if (results != null && results.count > 0) {
-                clear();
-                for (Suggestion suggestion : filterList) {
-                    add(suggestion);
-                    notifyDataSetChanged();
-                }
+            if (results.values != null) {
+                fullStringList = (ArrayList<String>) results.values;
+            } else {
+                fullStringList = new ArrayList<>();
+            }
+            if (results.count > 0) {
+                notifyDataSetChanged();
+            } else {
+                notifyDataSetInvalidated();
             }
         }
-    };
+    }
+
 }
