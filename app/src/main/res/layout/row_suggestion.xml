@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Main Layout-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--Sub-Main Layout-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fafafa"
+        android:baselineAligned="false">
+        <!--Right Layout-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:padding="16dp"
+            android:id="@+id/row_suggestion_linear_layout_right">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/medium3_Grey"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:id="@+id/row_suggestion_txt_view_name" />
+        </LinearLayout><!--=======================================End Right layout-->
+        <!--Left Layout-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/row_suggestion_linear_layout_left">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:id="@+id/row_suggestion_img_view_icon"
+                android:src="@drawable/ic_lightbulb"
+                android:contentDescription="@string/content_description_image"/>
+        </LinearLayout><!--=========================================End Left layout-->
+    </LinearLayout><!--========================End Sub-Main Layout-->
+    <!--<View
+        android:id="@+id/row_suggestion_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#95a5a6"/>-->
+</LinearLayout><!--======================End Main Layout-->
