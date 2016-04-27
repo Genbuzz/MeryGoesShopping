@@ -19,14 +19,5 @@ public class DatabaseInsert {
         realm = Realm.getInstance(context);
     }
 
-    public void insertNewSuggestion(Suggestion suggestion){
 
-
-
-
-
-
-
-
-    }
 }
