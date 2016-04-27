@@ -1,22 +1,29 @@
 package model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.Ignore;
+
 /***
  * Created by Ivan on 27/04/2016.
  */
 
-public class Suggestion {
+public class Suggestion extends RealmObject {
+
+    @Ignore
+    public static final String SUGGESTION_ID = "suggestion_id";
+    @Ignore
+    public static final String SUGGESTION_NAME = "suggestion_name";
 
     private int id;
     private String name;
+
 
     public Suggestion(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
