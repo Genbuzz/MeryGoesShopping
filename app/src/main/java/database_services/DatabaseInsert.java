@@ -22,7 +22,7 @@ public class DatabaseInsert {
     public void insertNewSuggestion(Suggestion suggestion){
         int newID = realm.allObjects(Suggestion.class).size() + 1;
         // All changes to data must happen in a transaction
-        realm.beginTransaction();
+
 
 
 
