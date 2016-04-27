@@ -6,10 +6,20 @@ package model;
 
 public class Suggestion {
 
+    private int id;
     private String name;
 
-    public Suggestion(String name) {
+    public Suggestion(int id, String name) {
+        this.id = id;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
