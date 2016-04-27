@@ -1,6 +1,7 @@
 package com.genbuzz.merygoesshopping;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
+import adapter.SuggestionAdapter;
 import model.Suggestion;
 
 
@@ -22,17 +23,30 @@ public class ActivityMain extends AppCompatActivity {
 
     private AutoCompleteTextView txtSpeechInput;
     private ImageView btnSpeak;
-
+    private ArrayList<String> suggestionList;
+    private SuggestionAdapter adapter;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        context = getApplicationContext();
+        suggestionList = new ArrayList<>();
+
+
+        fillSuggestions();
+
         txtSpeechInput = (AutoCompleteTextView) findViewById(R.id.activity_main_auto_complete_name);
 
+        adapter = new SuggestionAdapter(this, R.layout.row_suggestion,
+                R.id.row_suggestion_txt_view_name, suggestionList);
 
 
+
+
+        txtSpeechInput.setAdapter(adapter);
 
 
         btnSpeak = (ImageView) findViewById(R.id.activity_main_icon_microphone);
@@ -44,6 +58,7 @@ public class ActivityMain extends AppCompatActivity {
             }
         });
     }
+
 
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -74,5 +89,29 @@ public class ActivityMain extends AppCompatActivity {
             }
 
         }
+    }
+
+    public void fillSuggestions(){
+        suggestionList.add(getResources().getString(R.string.bread_white));
+        suggestionList.add(getResources().getString(R.string.bread_wheat));
+        suggestionList.add(getResources().getString(R.string.bread_french));
+        suggestionList.add(getResources().getString(R.string.spinach));
+        suggestionList.add(getResources().getString(R.string.broccoli));
+        suggestionList.add(getResources().getString(R.string.cauliflower));
+        suggestionList.add(getResources().getString(R.string.green_pepper));
+        suggestionList.add(getResources().getString(R.string.carrots));
+        suggestionList.add(getResources().getString(R.string.asparagus));
+        suggestionList.add(getResources().getString(R.string.red_pepper));
+        suggestionList.add(getResources().getString(R.string.strawberry));
+        suggestionList.add(getResources().getString(R.string.tomato));
+        suggestionList.add(getResources().getString(R.string.orange));
+        suggestionList.add(getResources().getString(R.string.apple));
+        suggestionList.add(getResources().getString(R.string.cucumber));
+        suggestionList.add(getResources().getString(R.string.salmon));
+        suggestionList.add(getResources().getString(R.string.avocado));
+        suggestionList.add(getResources().getString(R.string.milk));
+        suggestionList.add(getResources().getString(R.string.potatoes));
+        suggestionList.add(getResources().getString(R.string.eggs));
+        suggestionList.add(getResources().getString(R.string.cheese));
     }
 }
