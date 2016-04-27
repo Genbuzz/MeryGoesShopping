@@ -17,7 +17,6 @@ public class Suggestion extends RealmObject {
     private int id;
     private String name;
 
-
     public Suggestion(int id, String name) {
         this.id = id;
         this.name = name;
