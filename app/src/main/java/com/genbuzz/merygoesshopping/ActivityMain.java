@@ -23,9 +23,10 @@ public class ActivityMain extends AppCompatActivity {
 
     private AutoCompleteTextView txtSpeechInput;
     private ImageView btnSpeak;
-    private ArrayList<String> suggestionList;
+   /* private ArrayList<Suggestion> suggestionList;*/
     private SuggestionAdapter adapter;
     private Context context;
+    private Suggestion suggestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +34,15 @@ public class ActivityMain extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context = getApplicationContext();
-        suggestionList = new ArrayList<>();
+       /* suggestionList = new ArrayList<>();*/
 
 
         fillSuggestions();
 
         txtSpeechInput = (AutoCompleteTextView) findViewById(R.id.activity_main_auto_complete_name);
 
-        adapter = new SuggestionAdapter(this, R.layout.row_suggestion,
-                R.id.row_suggestion_txt_view_name, suggestionList);
+        /*adapter = new SuggestionAdapter(this, R.layout.row_suggestion,
+                R.id.row_suggestion_txt_view_name, suggestionList);*/
 
 
 
@@ -92,8 +93,8 @@ public class ActivityMain extends AppCompatActivity {
     }
 
     public void fillSuggestions(){
-        suggestionList.add(getResources().getString(R.string.bread_white));
-        suggestionList.add(getResources().getString(R.string.bread_wheat));
+     /*   suggestionList.add(1, getResources().getString(R.string.bread_wheat));*/
+      /*  suggestionList.add(getResources().getString(R.string.bread_wheat));
         suggestionList.add(getResources().getString(R.string.bread_french));
         suggestionList.add(getResources().getString(R.string.spinach));
         suggestionList.add(getResources().getString(R.string.broccoli));
@@ -112,6 +113,8 @@ public class ActivityMain extends AppCompatActivity {
         suggestionList.add(getResources().getString(R.string.milk));
         suggestionList.add(getResources().getString(R.string.potatoes));
         suggestionList.add(getResources().getString(R.string.eggs));
-        suggestionList.add(getResources().getString(R.string.cheese));
+        suggestionList.add(getResources().getString(R.string.cheese));*/
+
+
     }
 }
