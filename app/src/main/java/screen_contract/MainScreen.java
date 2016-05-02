@@ -5,4 +5,5 @@ package screen_contract;
  */
 
 public interface MainScreen {
+    void launchFragmentListDetail();
 }
