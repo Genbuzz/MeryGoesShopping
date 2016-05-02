@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import adapter.SuggestionAdapter;
-import model.Suggestion;
+
 
 
 public class ActivityMain extends AppCompatActivity {
@@ -26,8 +26,8 @@ public class ActivityMain extends AppCompatActivity {
    /* private ArrayList<Suggestion> suggestionList;*/
     private SuggestionAdapter adapter;
     private Context context;
-    private Suggestion suggestion;
-
+   /* private Suggestion suggestion;
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
