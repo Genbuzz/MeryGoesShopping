@@ -1,5 +1,7 @@
 package presenter;
 
+import javax.inject.Inject;
+
 import screen_contract.MainScreen;
 
 /***
@@ -8,6 +10,7 @@ import screen_contract.MainScreen;
 
 public class MainPresenter {
 
+    @Inject
     public MainPresenter() {
     }
 
