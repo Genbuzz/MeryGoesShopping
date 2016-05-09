@@ -16,7 +16,7 @@ public class MainPresenter {
         this.mMainView = mMainView;
     }
 
-    ///////////////////////////// METHOD /////////////////////////////////
+    ///////////////////////////// METHODS /////////////////////////////////
     public void onCreate(){
         mMainView.setContentView();
         mMainView.launchActivityDetail();
