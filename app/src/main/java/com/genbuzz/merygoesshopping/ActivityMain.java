@@ -1,7 +1,6 @@
 package com.genbuzz.merygoesshopping;
 
 import android.content.Intent;
-import android.support.annotation.BinderThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +8,8 @@ import android.widget.ImageView;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import presenter.MainPresenter;
-import screen_contract.MainScreen;
+import view.MainScreen;
 
 /**
  * keep models and presenters android free
@@ -31,16 +27,17 @@ public class ActivityMain extends AppCompatActivity implements MainScreen, View.
         setContentView(R.layout.activity_main);
 
         imageView = (ImageView)findViewById(R.id.activity_main_icon_barcode);
-
+    imageView.setOnClickListener(this);
 
     }
 
 
 
-   /* @OnClick(R.id.activity_main_icon_barcode)
+
+
     public void onListSampleButtonClick(){
         mainPresenter.onShowListButtonClick(this);
-    }*/
+    }
 
 
     @Override
@@ -54,7 +51,8 @@ public class ActivityMain extends AppCompatActivity implements MainScreen, View.
     public void onClick(View v) {
 
         if(v.getId() == R.id.activity_main_icon_barcode) {
-            mainPresenter.onShowListButtonClick(this);
+          launchFragmentListDetail();
+           /* Toast.makeText(getApplicationContext(), "Disparado", Toast.LENGTH_LONG).show();*/
         }
 
     }

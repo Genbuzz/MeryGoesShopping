@@ -1,8 +1,6 @@
 package presenter;
 
-import javax.inject.Inject;
-
-import screen_contract.MainScreen;
+import view.MainScreen;
 
 /***
  * Created by Ivan on 02/05/2016.
@@ -10,7 +8,7 @@ import screen_contract.MainScreen;
 
 public class MainPresenter {
 
-    @Inject
+
     public MainPresenter() {
     }
 

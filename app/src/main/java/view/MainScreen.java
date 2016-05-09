@@ -1,4 +1,4 @@
-package screen_contract;
+package view;
 
 /***
  * Created by Ivan on 02/05/2016.
